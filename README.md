@@ -12,8 +12,6 @@ There's also a Kubernetes deployment example (which is propably overkill in most
 All of the server files are gitignored due to the size of the files. To get the server files, you can download the server files from the official website and unzip them in this directory.
 You can find them here : https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files by looking at the "Server Files" section of the latest version.
 
-// TODO: Adds a script to download the latest zip file command line.
-
 ATM10 Version : 2.36
 Last updated : 17/02/2025
 Supported Minecraft version : 1.21.1
@@ -24,3 +22,6 @@ Unzip the server files at the ./build location, build the server once locally (r
 Many local files are overwritting the server files, like the server.properties, the mods, the config, the scripts, etc... edit them as needed !
 
 By building this image, you are indicating your agreement to the EULA (https://aka.ms/MinecraftEULA)
+
+> TODO: Adds a script to download the latest zip file command line.
+> TODO: Adds a complete docker-compose example
