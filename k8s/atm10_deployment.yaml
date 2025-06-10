@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atm10
+  labels:
+    app: atm10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atm10
+  template:
+    metadata:
+      labels:
+        app: atm10
+    spec:
+      containers:
+      - name: atm10
+        image: ganarok/atm10:2.36-1
+        ports:
+        - containerPort: 25565
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2000m"
+          limits:
+            memory: "10Gi"
+            cpu: "4000m"
+        volumeMounts:
+          - name: atm10-world-storage
+            mountPath: /app/server/world  # Use shared PV for world data
+            subPath: world # Subpath within the shared PVC
+          - name: atm10-core-config
+            mountPath: /app/server/server.properties
+            subPath: server.properties
+          - name: atm10-core-config
+            mountPath: /app/server/whitelist.json
+            subPath: whitelist.json
+          - name: atm10-core-config
+            mountPath: /app/server/ops.json
+            subPath: ops.json
+          - name: atm10-core-config
+            mountPath: /app/server/banned-players.json
+            subPath: banned-players.json
+      volumes:
+        - name: atm10-world-storage
+          persistentVolumeClaim:
+            claimName: shared-world-pvc
+        - name: atm10-core-config
+          configMap:
+            name: atm10-core-config

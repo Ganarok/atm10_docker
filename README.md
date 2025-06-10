@@ -7,7 +7,7 @@
 This Docker image "atm10" is built using this Dockerfile, deserving an “All The Mods 10" service.
 
 All of the server files are gitignored due to the size of the files. To get the server files, you can download the server files from the official website and unzip them in this directory.
-You can find them here : https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/6201484
+You can find them here : https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files
 
 ATM10 Version : 2.36
 Last updated : 17/02/2025
